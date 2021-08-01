@@ -1,9 +1,10 @@
-package com.alicimsamil.mapsdirectionsexamples
+package com.alicimsamil.mapsdirectionsexamples.view
 
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.alicimsamil.mapsdirectionsexamples.R
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
