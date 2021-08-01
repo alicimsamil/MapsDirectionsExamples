@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MapsDirectionsExamples</string>
+    <string name="title_activity_google_directions_api">GoogleDirectionsApi</string>
+</resources>
