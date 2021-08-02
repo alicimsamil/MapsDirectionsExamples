@@ -20,6 +20,14 @@ class MainActivity : AppCompatActivity() {
             finish()
 
         }
+        val yandexButton=findViewById<Button>(R.id.yandexBtn)
+        yandexButton.setOnClickListener {
+            val intent=Intent(this, YandexMapsDirections::class.java)
+            startActivity(intent)
+            finish()
+
+
+        }
 
 
 
