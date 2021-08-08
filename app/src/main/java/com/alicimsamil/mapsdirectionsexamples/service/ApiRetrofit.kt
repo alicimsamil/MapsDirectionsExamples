@@ -1,4 +1,4 @@
-package com.alicimsamil.mapsdirectionsexamples.model.GoogleDirectionsApi
+package com.alicimsamil.mapsdirectionsexamples.service
 
 import android.content.Context
 import retrofit2.Retrofit
@@ -8,12 +8,12 @@ class ApiRetrofit {
 
 
 
-    fun apiServices(context: Context): ApiServices {
+    fun apiServices(context: Context): ApiInterface {
         val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl("https://maps.googleapis.com")
             .build()
-        return retrofit.create<ApiServices>(ApiServices::class.java)
+        return retrofit.create<ApiInterface>(ApiInterface::class.java)
     }
 
 

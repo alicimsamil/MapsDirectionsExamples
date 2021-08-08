@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.alicimsamil.mapsdirectionsexamples.R
+import com.alicimsamil.mapsdirectionsexamples.model.DirectionResponses
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.alicimsamil.mapsdirectionsexamples.model.GoogleDirectionsApi.ApiRetrofit
-import com.alicimsamil.mapsdirectionsexamples.model.GoogleDirectionsApi.DirectionResponses
+import com.alicimsamil.mapsdirectionsexamples.service.ApiRetrofit
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.maps.android.PolyUtil
 import retrofit2.Call
@@ -43,8 +43,11 @@ class GoogleDirectionsApi : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
 
     }
 
+
+
+
     private fun drawPolyline(response: Response<DirectionResponses>) {
-        val shape = response.body()?.routes?.get(0)?.overviewPolyline?.points
+        val shape = response.body()?.routes?.get(0)?.overview_polyline?.points
         val polyline = PolylineOptions()
             .addAll(PolyUtil.decode(shape))
             .width(8f)
@@ -83,4 +86,7 @@ class GoogleDirectionsApi : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
         }
         temp=temp+1
     }
+
 }
+
+
