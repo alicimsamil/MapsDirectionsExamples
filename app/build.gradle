@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'com.huawei.agconnect'
 }
 
 android {
@@ -16,10 +17,26 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            storeFile file('MapsDirectionsExamples.jks')
+            keyAlias 'mapsdirectionsexamples'
+            keyPassword '123456'
+            storePassword '123456'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.release
+            debuggable true
         }
     }
     compileOptions {
@@ -48,5 +65,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.8.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.2'
     implementation 'com.yandex.android:maps.mobile:4.0.0-full'
+    implementation 'com.huawei.hms:maps:6.0.0.301'
+
 
 }
