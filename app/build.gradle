@@ -1,41 +1,45 @@
-plugins {
+plugins{
     id 'com.android.application'
     id 'kotlin-android'
+    id 'com.huawei.agconnect'
 }
 
 android {
-    compileSdk 30
-
+    compileSdkVersion 30
+    buildToolsVersion "28.0.3"
     defaultConfig {
-        applicationId "com.alicimsamil.mapsdirectionsexamples"
-        minSdk 23
-        targetSdk 30
+        applicationId "com.huawei.hms.maps.mapsdirectionsexamples"
+        minSdkVersion 19
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            storeFile file('MapsDirectionsExamples.jks')
+            keyAlias 'mapsdirectionsexamples'
+            keyPassword '123456'
+            storePassword '123456'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-    buildFeatures {
-        viewBinding = true
-    }
+
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.3.0'
@@ -48,5 +52,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.8.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.2'
     implementation 'com.yandex.android:maps.mobile:4.0.0-full'
+    implementation 'com.huawei.hms:maps:6.0.0.301'
 
 }
+
