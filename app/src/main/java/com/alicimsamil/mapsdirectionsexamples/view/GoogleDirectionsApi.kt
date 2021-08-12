@@ -71,7 +71,7 @@ class GoogleDirectionsApi : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
             destination=p0!!.latitude.toString() + "," + p0!!.longitude.toString()
 
             val apiServices = ApiRetrofit().apiServices(this)
-            apiServices.getDirection(origin, destination, "Your Api Key")
+            apiServices.getDirection(origin, destination, getString(R.string.google_maps_key))
                 .enqueue(object : Callback<DirectionResponses> {
                     override fun onResponse(call: Call<DirectionResponses>, response: Response<DirectionResponses>) {
                         drawPolyline(response)

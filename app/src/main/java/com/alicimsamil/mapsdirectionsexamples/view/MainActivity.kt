@@ -29,6 +29,18 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        val huaweiButton=findViewById<Button>(R.id.huaweiBtn)
+        huaweiButton.setOnClickListener {
+
+            val intent=Intent(this, HuaweiMapkitDirections::class.java)
+            startActivity(intent)
+            finish()
+
+
+
+
+        }
+
 
 
     }

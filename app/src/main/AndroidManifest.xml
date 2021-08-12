@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MapsDirectionsExamples">
-
+        <activity
+            android:name=".view.HuaweiMapkitDirections"
+            android:exported="true" />
         <activity
             android:name=".view.YandexMapsDirections"
             android:exported="true" />

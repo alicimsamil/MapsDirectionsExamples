@@ -6,14 +6,15 @@ plugins{
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "28.0.3"
+    buildToolsVersion "30.0.3"
     defaultConfig {
-        applicationId "com.huawei.hms.maps.mapsdirectionsexamples"
+        applicationId "com.alicimsamil.mapsdirectionsexamples"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
 
     signingConfigs {
@@ -53,6 +54,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.8.2'
     implementation 'com.yandex.android:maps.mobile:4.0.0-full'
     implementation 'com.huawei.hms:maps:6.0.0.301'
+    implementation 'com.android.support:multidex:1.0.3'
+
 
 }
 
