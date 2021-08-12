@@ -12,6 +12,7 @@ class HuaweiMapkitDirections : AppCompatActivity(),OnMapReadyCallback {
 
     private lateinit var hMap:HuaweiMap
     private lateinit var mMapView:MapView
+    private var temp=0
 
     companion object{
         private const val MAPVIEW_BUNDLE_KEY = "MapViewBundleKey"
@@ -37,10 +38,20 @@ class HuaweiMapkitDirections : AppCompatActivity(),OnMapReadyCallback {
     override fun onMapReady(p0: HuaweiMap?) {
         hMap=p0!!
 
-
-        hMap.setOnMapLongClickListener {
-            hMap.addMarker(MarkerOptions().position(it))
+        if(temp==0){
+            hMap.setOnMapLongClickListener {
+                hMap.addMarker(MarkerOptions().position(it))
+            }
+            temp=temp+1
         }
+        else if (temp==1){
+            hMap.setOnMapLongClickListener {
+                hMap.addMarker(MarkerOptions().position(it))
+            }
+            temp=temp+1
+        }
+
+
 
 
     }
