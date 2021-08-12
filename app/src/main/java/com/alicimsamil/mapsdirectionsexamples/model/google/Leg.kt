@@ -1,4 +1,4 @@
-package com.alicimsamil.mapsdirectionsexamples.model
+package com.alicimsamil.mapsdirectionsexamples.model.google
 
 data class Leg(
     val distance: Distance,

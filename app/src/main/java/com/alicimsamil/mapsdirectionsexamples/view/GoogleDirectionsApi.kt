@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.alicimsamil.mapsdirectionsexamples.R
-import com.alicimsamil.mapsdirectionsexamples.model.DirectionResponses
+import com.alicimsamil.mapsdirectionsexamples.model.google.DirectionResponses
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.alicimsamil.mapsdirectionsexamples.service.ApiRetrofit
+import com.alicimsamil.mapsdirectionsexamples.service.google.GoogleApiRetrofit
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.maps.android.PolyUtil
 import retrofit2.Call
@@ -62,15 +62,15 @@ class GoogleDirectionsApi : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
     override fun onMapLongClick(p0: LatLng?) {
         if(temp==0){
             mMap.addMarker(MarkerOptions().position(p0!!))
-            origin=p0!!.latitude.toString() + "," + p0!!.longitude.toString()
+            origin=p0.latitude.toString() + "," + p0.longitude.toString()
 
 
         }
         else if (temp==1){
             mMap.addMarker(MarkerOptions().position(p0!!))
-            destination=p0!!.latitude.toString() + "," + p0!!.longitude.toString()
+            destination=p0.latitude.toString() + "," + p0.longitude.toString()
 
-            val apiServices = ApiRetrofit().apiServices(this)
+            val apiServices = GoogleApiRetrofit().apiServices(this)
             apiServices.getDirection(origin, destination, getString(R.string.google_maps_key))
                 .enqueue(object : Callback<DirectionResponses> {
                     override fun onResponse(call: Call<DirectionResponses>, response: Response<DirectionResponses>) {
@@ -78,7 +78,7 @@ class GoogleDirectionsApi : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
                     }
 
                     override fun onFailure(call: Call<DirectionResponses>, t: Throwable) {
-                        Log.e("Fail: ",t.localizedMessage)
+                        println(t.localizedMessage)
                     }
                 })
 

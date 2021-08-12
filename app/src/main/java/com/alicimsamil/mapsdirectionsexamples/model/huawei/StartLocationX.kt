@@ -1,4 +1,4 @@
-package com.alicimsamil.mapsdirectionsexamples.model
+package com.alicimsamil.mapsdirectionsexamples.model.huawei
 
 data class StartLocationX(
     val lat: Double,
