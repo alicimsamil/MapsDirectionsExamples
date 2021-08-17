@@ -7,8 +7,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class GoogleApiRetrofit {
 
-
-
     fun apiServices(context: Context): GoogleApiInterface {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://maps.googleapis.com")
@@ -17,8 +15,5 @@ class GoogleApiRetrofit {
             .build()
         return retrofit.create<GoogleApiInterface>(GoogleApiInterface::class.java)
     }
-
-
-
 
 }

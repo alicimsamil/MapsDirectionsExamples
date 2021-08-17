@@ -31,13 +31,13 @@ class HuaweiMapkitDirections : AppCompatActivity(),OnMapReadyCallback {
     private lateinit var hMap:HuaweiMap
     private lateinit var mMapView:MapView
     private var temp=0
-    private lateinit var directionPoints:DirectionsRequest
     private lateinit var origin:LatLngData
     private lateinit var destination:LatLngData
+    private val MAPVIEW_BUNDLE_KEY = "MapViewBundleKey"
+    private lateinit var directionPoints:DirectionsRequest
     private lateinit var viewModel: HuaweiViewModel
-    companion object{
-        private const val MAPVIEW_BUNDLE_KEY = "MapViewBundleKey"
-    }
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,21 +45,13 @@ class HuaweiMapkitDirections : AppCompatActivity(),OnMapReadyCallback {
         setContentView(R.layout.activity_huawei_mapkit_directions)
         viewModel=ViewModelProvider(this).get(HuaweiViewModel::class.java)
         mMapView=findViewById(R.id.huaweiMapView)
-        var mapViewBundle: Bundle? = null
-        if (savedInstanceState != null) {
-            mapViewBundle =
-                savedInstanceState.getBundle(MAPVIEW_BUNDLE_KEY)
-        }
-        mMapView?.apply {
-            onCreate(mapViewBundle)
-            getMapAsync(this@HuaweiMapkitDirections)
-        }
+        mMapView.onCreate(savedInstanceState?.getBundle(MAPVIEW_BUNDLE_KEY))
+        mMapView.getMapAsync(this@HuaweiMapkitDirections)
 
     }
 
     override fun onMapReady(p0: HuaweiMap?) {
         hMap=p0!!
-
         hMap.setOnMapLongClickListener {
             onLongTapListener(it)
         }
@@ -99,11 +91,7 @@ class HuaweiMapkitDirections : AppCompatActivity(),OnMapReadyCallback {
             hMap.addMarker(MarkerOptions().position(latLan))
             destination=LatLngData(latLan.latitude,latLan.longitude)
             directionPoints= DirectionsRequest(origin,destination)
-
-            CoroutineScope(Dispatchers.IO).launch {
-                viewModel.getPoint(this@HuaweiMapkitDirections,directionPoints,"Your Api Key")
-            }
-
+            viewModel.getPoint(this@HuaweiMapkitDirections,directionPoints,"Your API Key")
             viewModel.points.observe(this, Observer {
                 addPolyLines(it)
             })

@@ -19,7 +19,7 @@ class GoogleViewModel : ViewModel() {
 
 
 
-    suspend fun getData(context: Context,originPoint: String, destinationPoint:String, apiKey:String){
+    fun getData(context: Context,originPoint: String, destinationPoint:String, apiKey:String){
         disposable.add(
 
             GoogleApiRetrofit().apiServices(context)

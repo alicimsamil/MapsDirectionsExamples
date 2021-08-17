@@ -3,13 +3,17 @@
 buildscript {
     ext.kotlin_version = '1.5.21'
     repositories {
+        //Huawei
         maven { url 'https://developer.huawei.com/repo/' }
         google()
         mavenCentral()
     }
     dependencies {
+        //Gradle
         classpath 'com.android.tools.build:gradle:7.0.0'
+        //Huawei
         classpath 'com.huawei.agconnect:agcp:1.5.2.300'
+        //Kotlin
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -18,6 +22,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        //Huawei
         maven { url 'https://developer.huawei.com/repo/' }
     }
 }

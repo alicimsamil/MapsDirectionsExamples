@@ -21,7 +21,7 @@ class HuaweiViewModel : ViewModel() {
 
 
 
-    suspend fun getPoint(context:Context,directionRequest:DirectionsRequest,apiKey:String){
+    fun getPoint(context:Context,directionRequest:DirectionsRequest,apiKey:String){
 
 
         disposable.add(
@@ -34,23 +34,12 @@ class HuaweiViewModel : ViewModel() {
                     override fun onSuccess(t: DirectionResponse) {
                         points.value=t
                     }
-
                     override fun onError(e: Throwable) {
                         error.value=e.localizedMessage
                     }
-
-
                 })
 
-
-
         )
-
-
-
-
-
-
 
 
     }

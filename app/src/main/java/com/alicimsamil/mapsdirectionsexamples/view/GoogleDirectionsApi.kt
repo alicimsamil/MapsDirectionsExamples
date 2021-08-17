@@ -70,10 +70,7 @@ class GoogleDirectionsApi : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
             mMap.addMarker(MarkerOptions().position(p0!!))
             destination=p0.latitude.toString() + "," + p0.longitude.toString()
 
-            CoroutineScope(Dispatchers.IO).launch {
-                viewModel.getData(this@GoogleDirectionsApi,origin,destination,getString(R.string.google_maps_key))
-            }
-
+            viewModel.getData(this@GoogleDirectionsApi,origin,destination,getString(R.string.google_maps_key))
             viewModel.points.observe(this, Observer {
                 drawPolyline(it)
             })
