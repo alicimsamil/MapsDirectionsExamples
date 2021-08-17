@@ -1,2 +1,3 @@
-![Yandex MapkitAPI Directions](https://user-images.githubusercontent.com/81926983/127889159-8b68555f-2da6-4f4d-9912-6040d0cb2d50.png)
-![Google Directions API Directions](https://user-images.githubusercontent.com/81926983/127889175-0032bdbf-6b0e-4009-a006-fa9073a6afbf.png)
+![Google Directions API](https://user-images.githubusercontent.com/81926983/129642689-101589a0-58e1-4c4a-b547-7f36fbd619a8.jpg)
+![Yandex Map Kit](https://user-images.githubusercontent.com/81926983/129642690-c1b36daa-b12b-4daa-a4d9-7cc080aa0cdd.jpg)
+![Huawei Map Kit](https://user-images.githubusercontent.com/81926983/129642517-65786eea-6066-4626-bceb-1deb5be2e0e5.JPG)
