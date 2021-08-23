@@ -15,10 +15,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.alicimsamil.mapsdirectionsexamples.viewmodel.GoogleViewModel
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.maps.android.PolyUtil
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import okhttp3.Dispatcher
+
 
 
 class GoogleDirectionsApi : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLongClickListener {

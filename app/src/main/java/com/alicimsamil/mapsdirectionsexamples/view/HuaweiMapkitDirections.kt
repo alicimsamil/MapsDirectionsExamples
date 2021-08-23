@@ -19,12 +19,7 @@ import com.huawei.hms.maps.OnMapReadyCallback
 import com.huawei.hms.maps.model.LatLng
 import com.huawei.hms.maps.model.MarkerOptions
 import com.huawei.hms.maps.model.PolylineOptions
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+
 
 class HuaweiMapkitDirections : AppCompatActivity(),OnMapReadyCallback {
 
